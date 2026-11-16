@@ -6,11 +6,29 @@ Verify that department-based web access policies are enforced correctly through 
 
 ## Implementation
 
-### 1. IT Department – Ahmed
+### 1. Department Website Policies
+
+Department-specific website access lists were configured to define which websites are allowed and blocked for each department.
+
+The following image shows the allowed and blocked website lists configured for IT, HR, and Finance.
+
+![Department Website Policies](images/Department_Website_Policies.png)
+
+**IT Department**
+- **Allowed:** GitHub, Stack Overflow, LinkedIn, Microsoft.
+- **Blocked:** TradingView, Investing, Indeed, Bayt.
+
+**HR Department**
+- **Allowed:** Microsoft, LinkedIn, Indeed, Bayt.
+- **Blocked:** GitHub, Stack Overflow, TradingView, Investing.
+
+**Finance Department**
+- **Allowed:** TradingView, Investing, Microsoft.
+- **Blocked:** GitHub, Stack Overflow, LinkedIn, Indeed, Bayt.
+
+### 2. IT Department – Ahmed
 
 The IT employee was configured to use the dedicated proxy port `3129`.
-
-![IT Proxy Configuration](images/IT/Ahmed_01_Proxy_Configuration.png)
 
 **Access Policy Tests:**
 
@@ -27,11 +45,9 @@ Splunk logs confirmed the results through `TCP_TUNNEL/200` for GitHub and `TCP_D
 
 ![IT Splunk Verification](images/IT/Ahmed_05_Splunk_Allowed_vs_Blocked.png)
 
-### 2. HR Department – Sara
+### 3. HR Department – Sara
 
 The HR employee was configured to use the dedicated proxy port `3130`.
-
-![HR Proxy Configuration](images/HR/Sara_03_Proxy_Configuration.png)
 
 **Access Policy Tests:**
 
@@ -48,11 +64,9 @@ Splunk logs confirmed the results through `TCP_TUNNEL/200` for LinkedIn and `TCP
 
 ![HR Splunk Verification](images/HR/Sara_04_Splunk_Allowed_vs_Blocked.png)
 
-### 3. Finance Department – Faisal
+### 4. Finance Department – Faisal
 
 The Finance employee was configured to use the dedicated proxy port `3131`.
-
-![Finance Proxy Configuration](images/Finance/Faisal_01_Proxy_Configuration.png)
 
 **Access Policy Tests:**
 
