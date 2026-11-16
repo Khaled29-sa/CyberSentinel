@@ -45,4 +45,59 @@ Microsoft Entra ID was used to create employee accounts and organize users based
 
 Five user accounts were created to represent employees and administrative roles within the lab environment.
 
-![Entra ID Users](Images/04-Entra
+![Entra ID Users](Images/04-Entra-ID-Users.png)
+
+**Department Groups and Membership**
+
+Three Security Groups were created to organize employees into their respective departments. Each employee was assigned to the corresponding group.
+
+**Finance Group**
+
+![Finance Group Members](Images/Finance-Group-Members.png)
+
+**HR Group**
+
+![HR Group Members](Images/HR-Group-Members.png)
+
+**IT Group**
+
+![IT Group Members](Images/IT-Group-Members.png)
+
+### 3. Application Registration
+
+Two applications were registered in Microsoft Entra ID to establish application identities for the lab environment:
+
+- **CyberLab-Squid**
+- **CyberLab-Employee-Client**
+
+![Entra ID App Registrations](Images/06-Entra-ID-App-Registrations.png)
+
+### 4. Flask Proxy Policy API
+
+A Flask-based API was developed to retrieve employee information and identify the appropriate proxy port.
+
+The API receives the employee's email address, searches for the corresponding record in a manually maintained JSON file (`group_map.json`), and returns the employee's name, department, and assigned proxy port.
+
+If the employee is not found, the API returns a `403 User not authorized` response.
+
+![Flask Proxy Policy API](Images/07-Flask-Proxy-Policy-API.png)
+
+### 5. Employee-to-Proxy Mapping
+
+A JSON-based mapping file was created to associate employee email addresses with their departments and designated proxy ports.
+
+The mapping was configured as follows:
+
+| Employee | Department | Proxy Port |
+|---|---|---:|
+| Ahmed IT | IT | 3129 |
+| Sara HR | HR | 3130 |
+| Faisal Finance | Finance | 3131 |
+
+![Employee Proxy Mapping](Images/08-Employee-Proxy-Mapping.png)
+
+## Outcome
+
+The Squid Proxy server was configured with dedicated department ports and authentication settings. Employee accounts and department groups were established in Microsoft Entra ID.
+
+A Flask API and JSON-based mapping mechanism were also implemented to associate employee identities with their designated proxy ports, preparing the environment for department-based web access control and policy testing in the next stage.
