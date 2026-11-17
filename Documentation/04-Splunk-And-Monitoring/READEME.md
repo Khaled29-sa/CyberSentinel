@@ -1,47 +1,79 @@
-## Evidence & Analysis
+# 04 – Splunk Monitoring
 
-### 1. Initial Log Review
-**SOC_01_Initial_Log_Review.png**
+## Objective
 
-Started by reviewing the incoming Squid Proxy logs in Splunk to verify that web traffic events were being collected and indexed successfully.
+Integrate Squid Proxy logs with Splunk Enterprise to establish centralized monitoring and gain visibility into employee web activity.
 
-This provided the initial visibility needed to begin analyzing employee web activity.
+This stage focuses on analyzing web traffic, monitoring access decisions, identifying blocked destinations, and examining user activity across different departments.
 
-### 2. Event Status Analysis
-**SOC_02_Event_Status_Analysis.png**
+## Implementation
 
-After confirming successful log collection, the next step was to examine proxy event statuses and distinguish between permitted and denied web requests.
+### 1. Log Collection and Initial Review
 
-This helped establish how Squid Proxy handled employee traffic.
+Configured log forwarding from Squid Proxy to Splunk Enterprise to centralize web traffic events.
 
-### 3. User Activity Overview
-**SOC_03_User_Activity_Overview.png**
+The first step was to verify that proxy logs were successfully received and indexed in Splunk before proceeding with further analysis.
 
-Analyzed web requests associated with individual employees to understand their browsing activity and identify how users interacted with the proxy.
+![Initial Log Review](Images/SOC_01_Initial_Log_Review.png)
+
+### 2. Proxy Event Status Analysis
+
+After confirming successful log collection, the next step was to analyze proxy event statuses to understand how web requests were processed.
+
+Examined the different proxy actions to distinguish between permitted and denied connections, providing an initial overview of web access activity.
+
+![Event Status Analysis](Images/SOC_02_Event_Status_Analysis.png)
+
+### 3. Employee Web Activity Analysis
+
+With the event statuses identified, the analysis moved to individual employee activity.
+
+Reviewed web requests associated with users to understand their browsing behavior and establish visibility into employee web access.
+
+![User Activity Overview](Images/SOC_03_User_Activity_Overview.png)
 
 ### 4. Blocked Destinations Analysis
-**SOC_04_Blocked_Destinations_Analysis.png**
 
-Examined blocked web destinations to identify which websites were denied by the configured access policies.
+Following the user activity review, the investigation focused on blocked web destinations.
 
-### 5. User and Destination Analysis
-**SOC_05_User_Destination_Analysis.png**
+Analyzed denied requests to identify websites restricted by the configured access policies and understand which destinations employees attempted to access.
 
-Correlated employee activity with requested destinations to understand which users attempted to access specific websites and how those requests were handled.
+![Blocked Destinations Analysis](Images/SOC_04_Blocked_Destinations_Analysis.png)
+
+### 5. User and Destination Correlation
+
+To gain more detailed visibility, employee activity was examined alongside requested destinations.
+
+This analysis helped identify which users attempted to access specific websites and determine how the proxy handled their requests.
+
+![User and Destination Analysis](Images/SOC_05_User_Destination_Analysis.png)
 
 ### 6. Access Policy Investigation
-**SOC_06_Access_Policy_Investigation.png**
 
-Investigated proxy events to examine access decisions and verify whether requests were handled according to the configured security policies.
+Building on the previous analysis, proxy events were examined to investigate access decisions and understand how the configured policies affected employee web requests.
+
+This step helped evaluate the relationship between user activity and the applied access controls.
+
+![Access Policy Investigation](Images/SOC_06_Access_Policy_Investigation.png)
 
 ### 7. Department Policy Validation
-**SOC_07_Department_Policy_Validation.png**
 
-Compared web access activity across IT, HR, and Finance to validate the differences in access behavior between departments.
+The analysis was then extended across the three departments: IT, HR, and Finance.
 
-### 8. Repeated Blocked Access Detection
-**SOC_08_Repeated_Blocked_Access_Detection.png**
+Compared their web access activity to examine differences in permitted and denied requests and validate the department-based access policies.
 
-Finally, examined repeated blocked access attempts to identify recurring patterns that could require further security investigation.
+![Department Policy Validation](Images/SOC_07_Department_Policy_Validation.png)
 
-This analysis provided a foundation for the next stage, where monitoring results would be presented through dashboards and security alerts.
+## Outcome
+
+Successfully integrated Squid Proxy logs with Splunk Enterprise, establishing centralized visibility into employee web activity and proxy access events.
+
+The implementation demonstrated how Splunk can support:
+
+- Centralized web traffic monitoring.
+- Analysis of allowed and blocked requests.
+- Employee activity monitoring.
+- Department-based access policy validation.
+- Identification of repeated blocked access attempts.
+
+This stage established the monitoring foundation for the next phase: **Dashboard and Alerting**.
